@@ -1,5 +1,5 @@
 let transactions = [];
-let myChart;
+let chart;
 
 fetch("/api/transaction")
   .then(response => {
@@ -58,13 +58,13 @@ function populateChart() {
   });
 
   // remove old chart if it exists
-  if (myChart) {
-    myChart.destroy();
+  if (chart) {
+    chart.destroy();
   }
 
-  let ctx = document.getElementById("myChart").getContext("2d");
+  let ctx = document.getElementById("chart").getContext("2d");
 
-  myChart = new Chart(ctx, {
+  chart = new Chart(ctx, {
     type: 'line',
       data: {
         labels,
